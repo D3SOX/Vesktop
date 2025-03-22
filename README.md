@@ -22,7 +22,7 @@ Vesktop is a custom Discord desktop app. This is my personal branch with some ex
 
 ```sh
 git clone https://github.com/D3SOX/Vesktop
-cd Vesktop
+cd Vesktop/arch
 makepkg -rsifc
 ```
 
