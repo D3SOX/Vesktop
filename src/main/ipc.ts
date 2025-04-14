@@ -13,6 +13,7 @@ import {
     clipboard,
     dialog,
     globalShortcut,
+    IpcMainInvokeEvent,
     nativeImage,
     RelaunchOptions,
     session,
@@ -87,28 +88,29 @@ handle(IpcEvents.SHOW_ITEM_IN_FOLDER, (_, path) => {
     shell.showItemInFolder(path);
 });
 
+function getWindow(e: IpcMainInvokeEvent, key?: string) {
+    return key ? PopoutWindows.get(key)! : (BrowserWindow.fromWebContents(e.sender) ?? mainWin);
+}
+
 handle(IpcEvents.FOCUS, () => {
     mainWin.show();
     mainWin.setSkipTaskbar(false);
 });
 
 handle(IpcEvents.CLOSE, (e, key?: string) => {
-    const popout = PopoutWindows.get(key!);
-    if (popout) return popout.close();
-
-    const win = BrowserWindow.fromWebContents(e.sender) ?? e.sender;
-    win.close();
+    getWindow(e, key).close();
 });
 
-handle(IpcEvents.MINIMIZE, e => {
-    mainWin.minimize();
+handle(IpcEvents.MINIMIZE, (e, key?: string) => {
+    getWindow(e, key).minimize();
 });
 
-handle(IpcEvents.MAXIMIZE, e => {
-    if (mainWin.isMaximized()) {
-        mainWin.unmaximize();
+handle(IpcEvents.MAXIMIZE, (e, key?: string) => {
+    const win = getWindow(e, key);
+    if (win.isMaximized()) {
+        win.unmaximize();
     } else {
-        mainWin.maximize();
+        win.maximize();
     }
 });
 

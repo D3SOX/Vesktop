@@ -260,8 +260,7 @@ function initMenuBar(win: BrowserWindow) {
         },
         { role: "fileMenu" },
         { role: "editMenu" },
-        { role: "viewMenu" },
-        { role: "windowMenu" }
+        { role: "viewMenu" }
     ]);
 
     Menu.setApplicationMenu(menu);
