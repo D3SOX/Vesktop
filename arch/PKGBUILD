@@ -3,7 +3,7 @@
 _pkgname="vesktop"
 pkgname="$_pkgname-git"
 pkgdesc="A standalone Electron app that loads Discord & Vencord"
-pkgver=r334.3a82eed
+pkgver=r505.64ea8a9
 pkgrel=1
 url="https://github.com/D3SOX/Vesktop"
 license=('GPL-3.0-only')
