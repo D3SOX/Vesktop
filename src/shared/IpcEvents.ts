@@ -12,6 +12,7 @@ export const enum IpcEvents {
 
     GET_VERSION = "VCD_GET_VERSION",
     SUPPORTS_WINDOWS_TRANSPARENCY = "VCD_SUPPORTS_WINDOWS_TRANSPARENCY",
+    GET_ENABLE_HARDWARE_ACCELERATION = "VCD_GET_ENABLE_HARDWARE_ACCELERATION",
 
     RELAUNCH = "VCD_RELAUNCH",
     CLOSE = "VCD_CLOSE",
@@ -51,8 +52,6 @@ export const enum IpcEvents {
     VIRT_MIC_START_SYSTEM = "VCD_VIRT_MIC_START_ALL",
     VIRT_MIC_STOP = "VCD_VIRT_MIC_STOP",
 
-    ARRPC_ACTIVITY = "VCD_ARRPC_ACTIVITY",
-
     CLIPBOARD_COPY_IMAGE = "VCD_CLIPBOARD_COPY_IMAGE",
 
     SET_TRAY_ICON = "VCD_SET_TRAY_ICON",
@@ -70,13 +69,20 @@ export const enum IpcEvents {
     DEBUG_LAUNCH_GPU = "VCD_DEBUG_LAUNCH_GPU",
     DEBUG_LAUNCH_WEBRTC_INTERNALS = "VCD_DEBUG_LAUNCH_WEBRTC",
 
-    IPC_COMMAND = "VCD_IPC_COMMAND"
+    IPC_COMMAND = "VCD_IPC_COMMAND",
+
+    DEVTOOLS_OPENED = "VCD_DEVTOOLS_OPENED",
+    DEVTOOLS_CLOSED = "VCD_DEVTOOLS_CLOSED"
 }
 
 export const enum IpcCommands {
     RPC_ACTIVITY = "rpc:activity",
     RPC_INVITE = "rpc:invite",
     RPC_DEEP_LINK = "rpc:link",
+
     NAVIGATE_SETTINGS = "navigate:settings",
-    GET_LANGUAGES = "navigator.languages"
+
+    GET_LANGUAGES = "navigator.languages",
+
+    SCREEN_SHARE_PICKER = "screenshare:picker"
 }
